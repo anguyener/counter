@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,8 +21,45 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbt-fX-nQP">
+                                <rect key="frame" x="77" y="450" width="42" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Down"/>
+                                <connections>
+                                    <action selector="downButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oz3-wP-1h3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m15-Pb-HhH">
+                                <rect key="frame" x="255" y="450" width="30" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Up"/>
+                                <connections>
+                                    <action selector="upButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LsG-t1-H1S"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbc-HA-XkC">
+                                <rect key="frame" x="179" y="317" width="17.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dbt-fX-nQP" secondAttribute="bottom" constant="185" id="8Te-m9-PAV"/>
+                            <constraint firstItem="Dbc-HA-XkC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kkh-Oe-aSC"/>
+                            <constraint firstItem="Dbc-HA-XkC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dux-bl-dFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m15-Pb-HhH" secondAttribute="trailing" constant="74" id="dzh-2l-Xyb"/>
+                            <constraint firstItem="dbt-fX-nQP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="61" id="htA-Ha-OLT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m15-Pb-HhH" secondAttribute="bottom" constant="185" id="wkC-Dh-k0V"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelConstraint" destination="Kkh-Oe-aSC" id="QH2-hI-14W"/>
+                        <outlet property="numCount" destination="Dbc-HA-XkC" id="ugE-4c-Rkp"/>
+                        <outlet property="screen" destination="8bC-Xf-vdC" id="JZC-qv-vMS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
